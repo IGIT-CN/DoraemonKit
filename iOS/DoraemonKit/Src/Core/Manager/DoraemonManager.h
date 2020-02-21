@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -42,6 +43,8 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
     DoraemonManagerPluginType_DoraemonCocoaLumberjackPlugin,
     // 数据库工具
     DoraemonManagerPluginType_DoraemonDatabasePlugin,
+    // NSUserDefaults工具
+    DoraemonManagerPluginType_DoraemonNSUserDefaultsPlugin,
     
     #pragma mark - 性能检测
     // 帧率监控
@@ -62,6 +65,14 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
     DoraemonManagerPluginType_DoraemonLargeImageFilter,
     // 启动耗时
     DoraemonManagerPluginType_DoraemonStartTimePlugin,
+    // 内存泄漏
+    DoraemonManagerPluginType_DoraemonMemoryLeakPlugin,
+    // UI层级检查
+    DoraemonManagerPluginType_DoraemonUIProfilePlugin,
+    // UI结构调整
+    DoraemonManagerPluginType_DoraemonHierarchyPlugin,
+    // 函数耗时
+    DoraemonManagerPluginType_DoraemonTimeProfilePlugin,
     
     #pragma mark - 视觉工具
     // 颜色吸管

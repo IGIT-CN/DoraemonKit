@@ -6,6 +6,8 @@
 //
 
 #import "DoraemonQRCodeTool.h"
+#import "DoraemonDefine.h"
+
 @interface DoraemonQRCodeTool () <AVCaptureMetadataOutputObjectsDelegate,CAAnimationDelegate>
 
 /** 二维码信息对象 */
@@ -555,11 +557,15 @@ void ProviderReleaseData (void *info, const void *data, size_t size){
     
     
     // 保存bitmap到图片
-    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmap);
+    CGImageRef scaledImageRef = CGBitmapContextCreateImage(bitmap);
+    CGColorSpaceRelease(cs);
     CGContextRelease(bitmap);
     CGImageRelease(bitmapImage);
     
-    return [UIImage imageWithCGImage:scaledImage];
+    UIImage *scaledImage = [UIImage imageWithCGImage:scaledImageRef];
+    CGImageRelease(scaledImageRef);
+    
+    return scaledImage;
     
 }
 
