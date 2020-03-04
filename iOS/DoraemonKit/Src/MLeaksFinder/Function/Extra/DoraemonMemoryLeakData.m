@@ -7,7 +7,10 @@
 
 #import "DoraemonMemoryLeakData.h"
 #import "NSObject+MemoryLeak.h"
+#if _INTERNAL_MLF_RC_ENABLED
 #import <FBRetainCycleDetector/FBRetainCycleDetector.h>
+#endif
+#import "DoraemonHealthManager.h"
 
 @interface DoraemonMemoryLeakData()
 
@@ -39,14 +42,18 @@
     NSNumber *classPtr = @((uintptr_t)object);
     NSArray *viewStack = [object viewStack];
     
-    NSString *retainCycle = [self getRetainCycleByObject:object];
+    //NSString *retainCycle = [self getRetainCycleByObject:object];
     
-    [_dataArray addObject:@{
+    NSString *retainCycle = @"retainCycle";
+    
+    NSDictionary *info = @{
         @"className":className,
         @"classPtr":classPtr,
         @"viewStack":viewStack,
         @"retainCycle":retainCycle
-    }];
+    };
+    [_dataArray addObject:info];
+    [[DoraemonHealthManager sharedInstance] addLeak:info];
 }
 
 - (void)removeObjectPtr:(NSNumber *)objectPtr{
@@ -69,7 +76,7 @@
 
 - (NSString *)getRetainCycleByObject:(id)object{
     NSString *result;
-    
+#if _INTERNAL_MLF_RC_ENABLED
     FBRetainCycleDetector *detector = [FBRetainCycleDetector new];
     [detector addCandidate:object];
     NSSet *retainCycles = [detector findRetainCyclesWithMaxCycleLength:20];
@@ -95,6 +102,7 @@
     if (!hasFound) {
         result = @"Fail to find a retain cycle";
     }
+#endif
     return result;
 }
 

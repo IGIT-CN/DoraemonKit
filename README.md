@@ -62,12 +62,11 @@ DoraemonKit 是一个功能集合面板，能够让每一个 App 快速接入一
 4. **【流量】** 拦截 App 内部流量信息，提供波形图展示、流量概要展示、流量列表展示、流量筛选、流量详情，对流量信息统一拦截，成为我们 App 中自带的 “Charles”；
 5. **【卡顿】** 锁定 App 出现卡顿的时刻，打印出对应的代码调用堆栈；
 6. **【大图检测】** 通过流量监测，找出所有的大小超标的图片，避免下载大图造成的流量浪费和渲染大图带来的CPU消耗。
-7. **【自定义】** 可以选择你要监控的选项，包括 FPS、CPU、内存、流量。监控完毕之后，把数据保存到本地，按照页面进行维度进行分析；
-8. **【启动耗时】** 无侵入的统计出App启动过程的总共耗时；
-9. **【UI层级检查】** 检查出每一个页面中层级最深的元素；
-10. **【函数耗时】** 从函数级别分析app性能瓶颈；
-11. **【Load】** 找出所有的Load方法，并给出耗时分析；（iOS独有）
-12. **【内存泄漏】** 找出App中所有的内存泄漏的问题。
+7. **【启动耗时】** 无侵入的统计出App启动过程的总共耗时；
+8. **【UI层级检查】** 检查出每一个页面中层级最深的元素；
+9. **【函数耗时】** 从函数级别分析app性能瓶颈；
+10. **【Load】** 找出所有的Load方法，并给出耗时分析；（iOS独有）
+11. **【内存泄漏】** 找出App中所有的内存泄漏的问题。
 
 ### 三、视觉工具
 
@@ -138,18 +137,21 @@ tips ： 如果使用我们滴滴优秀的开源跨端方案 [chameleon](https:/
 [yixiangboy](https://github.com/yixiangboy)
 
 ### 内部核心成员
+[jtsky](https://github.com/jtsky) 、
+[ydlsl](https://github.com/ydlsl) 、
+[jayconscious](https://github.com/jayconscious)
+
+
+### 贡献者榜单
 [LinJZong](https://github.com/LinJZong) 、
 [wanglikun7342](https://github.com/wanglikun7342) 、
-[jtsky](https://github.com/jtsky) 、
 [wenquanlebao](https://github.com/wenquanlebao) 、
 [hiXgb](https://github.com/hiXgb) 、 
 [Chinnko](https://github.com/Chinnko) 、 
 [y644938647](https://github.com/y644938647) 、 
 [goolong](https://github.com/goolong) 、
 [miracle9312](https://github.com/miracle9312) 、
-[lwhsgz123](https://github.com/lwhsgz123)
-
-### 外部贡献者
+[lwhsgz123](https://github.com/lwhsgz123)、
 [huakucha](https://github.com/huakucha) 、
 [HuginChen](https://github.com/HuginChen) 、
 [feng562925462](https://github.com/feng562925462) 、
@@ -190,7 +192,8 @@ Andoid上传代码详见DoraemonStatisticsUtil类中的实现
 敬请各位用户知晓。
 
 ## 友情链接
-1. 我们部门的另外一款开源工具，一个终端侧AI集成运行时环境 [AoE](https://github.com/didi/AoE)
-2. 我们部门的技术公众号（普惠出行产品技术公众号），欢迎关注
+1. [AoE](https://github.com/didi/AoE)，一个终端侧AI集成运行时环境 
+2. [Chameleon]( https://github.com/didi/chameleon)/kəˈmiːlɪən/，简写CML，中文意思变色龙，意味着就像变色龙一样能适应不同环境的跨端整体解决方案，达到真正意义上"一套代码，多端运行"的终极目标
+3. 我们部门的技术公众号（普惠出行产品技术公众号），欢迎关注
 
 ![https://javer.oss-cn-shanghai.aliyuncs.com/2019/github/phgzh.jpg](https://javer.oss-cn-shanghai.aliyuncs.com/2019/github/phgzh.jpg)

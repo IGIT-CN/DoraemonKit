@@ -16,8 +16,17 @@
 #import "Doraemoni18NUtil.h"
 #import "DoraemonToastUtil.h"
 #import "DoraemonAlertUtil.h"
+#import "DoraemonUtil.h"
 
-#define DoKitVersion @"2.0.0"
+#define DoKitVersion @"3.0.0"
+
+#define DoKit_OpenLog
+
+#ifdef DoKit_OpenLog
+#define DoKitLog(...) NSLog(@"%s\n %@ \n\n",__func__,[NSString stringWithFormat:__VA_ARGS__]);
+#else
+#define DoKitLog(...)
+#endif
 
 #define DoraemonScreenWidth [UIScreen mainScreen].bounds.size.width
 #define DoraemonScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -45,7 +54,6 @@
 #define STRING_NOT_NULL(str) ((str==nil)?@"":str)
 
 
-#define DoraemonShowPluginNotification @"DoraemonShowPluginNotification"
 #define DoraemonClosePluginNotification @"DoraemonClosePluginNotification"
 #define DoraemonQuickOpenLogVCNotification @"DoraemonQuickOpenLogVCNotification"
 

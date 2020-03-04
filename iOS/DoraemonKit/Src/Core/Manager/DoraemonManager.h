@@ -23,6 +23,8 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
     // DevTool
     DoraemonManagerPluginType_DoraemonWeexDevToolPlugin,
     #pragma mark - 常用工具
+    // App设置
+    DoraemonManagerPluginType_DoraemonAppSettingPlugin,
     // App信息
     DoraemonManagerPluginType_DoraemonAppInfoPlugin,
     // 沙盒浏览
@@ -57,8 +59,6 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
     DoraemonManagerPluginType_DoraemonNetFlowPlugin,
     // 卡顿检测
     DoraemonManagerPluginType_DoraemonANRPlugin,
-    // 自定义 性能数据保存到本地
-    DoraemonManagerPluginType_DoraemonAllTestPlugin,
     // Load耗时
     DoraemonManagerPluginType_DoraemonMethodUseTimePlugin,
     // 大图检测
@@ -73,6 +73,8 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
     DoraemonManagerPluginType_DoraemonHierarchyPlugin,
     // 函数耗时
     DoraemonManagerPluginType_DoraemonTimeProfilePlugin,
+    // 模拟弱网
+    DoraemonManagerPluginType_DoraemonWeakNetworkPlugin,
     
     #pragma mark - 视觉工具
     // 颜色吸管
@@ -82,7 +84,12 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
     // 对齐标尺
     DoraemonManagerPluginType_DoraemonViewAlignPlugin,
     // 元素边框线
-    DoraemonManagerPluginType_DoraemonViewMetricsPlugin
+    DoraemonManagerPluginType_DoraemonViewMetricsPlugin,
+    
+    #pragma mark - 平台工具
+    // Mock 数据
+    DoraemonManagerPluginType_DoraemonMockPlugin,
+    DoraemonManagerPluginType_DoraemonHealthPlugin
 };
 
 @interface DoraemonManagerPluginTypeModel : NSObject
@@ -92,12 +99,15 @@ typedef NS_ENUM(NSUInteger, DoraemonManagerPluginType) {
 @property(nonatomic, copy) NSString *icon;
 @property(nonatomic, copy) NSString *pluginName;
 @property(nonatomic, copy) NSString *atModule;
+@property(nonatomic, copy) NSString *buriedPoint;
 
 @end
 
 @interface DoraemonManager : NSObject
 
 + (nonnull DoraemonManager *)shareInstance;
+
+@property (nonatomic, copy) NSString *pId; //产品id 平台端的工具必须填写
 
 - (void)install;
 
